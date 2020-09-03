@@ -10,6 +10,7 @@ export default function ItemRequisitionList() {
   React.useEffect(() => {
     fetchItemRequisitions()
       .then((requisitions) => {
+        requisitions.forEach(req => req.reqDate = new Intl.DateTimeFormat('en-US').format(new Date(req.reqDate)));
         setRequisitions(requisitions)
         setError(null)
       })

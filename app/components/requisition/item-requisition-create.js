@@ -24,50 +24,64 @@ export default function ItemRequisitionCreate() {
   return (
     <React.Fragment>
       <div className="row">
-        <form className="form-horizontal">
-          <fieldset>
-            <legend>Item Requisition Create</legend>
+        <div className="col-md-12">
+          <form className="form-horizontal">
+            <fieldset>
+              <legend>Item Requisition Create</legend>
 
-            <div className="form-group row">
-              <label className="col-md-3 control-label" htmlFor="refNo">Ref No</label>
-              <div className="col-md-9">
-                <input id="refNo" name="refNo"
-                  ref={refNo}
-                  type="text" placeholder="Enter ref no"
-                  className="form-control input-md" />
-              </div>
-            </div>
+              <div className="row">
 
-            <div className="form-group row">
-              <label className="col-md-3 control-label" htmlFor="reqDate">Req Date</label>
-              <div className="col-md-9">
-                <input id="reqDate" name="reqDate"
-                  ref={reqDate}
-                  type="text" placeholder="Enter reqDate"
-                  className="form-control input-md" />
-              </div>
-            </div>
+                <div className="col-md-6">
+                  <div className="form-group row">
+                    <label className="col-md-3 control-label" htmlFor="refNo">Ref No</label>
+                    <div className="col-md-9">
+                      <input id="refNo" name="refNo"
+                        ref={refNo}
+                        type="text" placeholder="Enter ref no"
+                        className="form-control input-md" />
+                    </div>
+                  </div>
+                </div>
 
-            <div className="form-group row">
-              <label className="col-md-3 control-label" htmlFor="status">Status</label>
-              <div className="col-md-9">
-                <input id="status" name="status"
-                  ref={status}
-                  type="text" placeholder="Enter Status"
-                  className="form-control input-md" />
+                <div className="col-md-6">
+                  <div className="form-group row">
+                    <label className="col-md-3 control-label" htmlFor="reqDate">Req Date</label>
+                    <div className="col-md-9">
+                      <input type="date"
+                        id="reqDate"
+                        name="reqDate"
+                        className="form-control"
+                        ref={reqDate} />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div className="form-group row">
-              <label className="col-md-3 control-label" htmlFor="submit"></label>
-              <div className="col-md-9">
-                <button id="submit" name="submit"
-                  onClick={handleSubmit}
-                  className="btn btn-primary">Save</button>
+              <div className="row">
+
+                <div className="col-md-6">
+                  <div className="form-group row">
+                    <label className="col-md-3 control-label" htmlFor="status">Status</label>
+                    <div className="col-md-9">
+                      <input id="status" name="status"
+                        ref={status}
+                        type="text" placeholder="Enter Status"
+                        className="form-control input-md" />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </fieldset>
-        </form>
+
+              <div className="form-group row">
+                <div className="col-md-9">
+                  <button id="submit" name="submit"
+                    onClick={handleSubmit}
+                    className="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </React.Fragment>
   )
