@@ -4,11 +4,9 @@ import { saveItem } from '../../core/request-util'
 export default function ItemCreate() {
   const [nameEn, setNameEn] = React.useState('');
   const [nameLocal, setNameLocal] = React.useState('');
-  const [isDeleted, setIsDeleted] = React.useState('');
-  const [createdBy, setCreatedBy] = React.useState('');
 
   const handleSubmit = () => {
-    saveItem({ nameEn: nameEn, nameLocal: nameLocal, isDeleted: isDeleted, createdBy: createdBy })
+    saveItem({ nameEn: nameEn, nameLocal: nameLocal })
       .then(data => {
         console.log(data)
       })
@@ -48,33 +46,6 @@ export default function ItemCreate() {
                         className="form-control input-md" />
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="form-group row">
-                    <label className="col-md-3 control-label" htmlFor="isDeleted">Is Deleted</label>
-                    <div className="col-md-9">
-                      <input id="isDeleted" name="isDeleted"
-                        onChange={(e) => setIsDeleted(e.target.value)}
-                        type="text" placeholder="Enter is deleted"
-                        className="form-control input-md" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-md-6">
-                  <div className="form-group row">
-                    <label className="col-md-3 control-label" htmlFor="createdBy">Created by</label>
-                    <div className="col-md-9">
-                      <input id="createdBy" name="createdBy"
-                        onChange={(e) => setCreatedBy(e.target.value)}
-                        type="text" placeholder="Enter is deleted"
-                        className="form-control input-md" />
-                    </div>
-                  </div>
-
                 </div>
               </div>
 
