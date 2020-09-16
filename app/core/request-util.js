@@ -44,10 +44,11 @@ export function fetchItems() {
   return fetch(endpoint)
     .then((res) => res.json())
     .then((data) => {
-      if (!data.elem) {
+      console.log(data);
+      if (!data.elems) {
         throw new Error(data.message)
       }
-      return data.elem
+      return data.elems
     })
 }
 

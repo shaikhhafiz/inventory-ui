@@ -1,6 +1,6 @@
 import React from 'react';
 import { fetchItems } from '../../core/request-util';
-
+import ItemListView from './item-list-view';
 
 export default function ItemList() {
   const [items, setItems] = React.useState([]);
@@ -21,7 +21,7 @@ export default function ItemList() {
   return (
     <React.Fragment>
           <ItemListView
-            requisitions={item} />
+            items={items} />
     </React.Fragment>
   )
 }

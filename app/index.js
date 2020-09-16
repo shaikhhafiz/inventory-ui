@@ -11,6 +11,7 @@ import './index.css'
 import Item from './components/settings/item'
 import ItemRequisitionCreate from './components/requisition/item-requisition-create';
 import ItemRequisition from './components/requisition/item-requisition';
+import ItemCreate from './components/settings/item-create';
 
 export default function App() {
   return (
@@ -34,6 +35,9 @@ export default function App() {
               </Route>
               <Route exact path='/settings/item'>
                 <Item />
+              </Route>
+              <Route exact path='/settings/item/create'>
+                <ItemCreate />
               </Route>
               <Route exact path='/requisition/create'>
                 <ItemRequisitionCreate />

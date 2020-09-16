@@ -7,17 +7,15 @@ export default function ItemListView({ items }) {
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">Ref No</th>
-              <th scope="col">Req Date</th>
-              <th scope="col">Status</th>
+              <th scope="col">Name En</th>
+              <th scope="col">Name Local</th>
             </tr>
           </thead>
           <tbody>
-            {requisitions.map((requisition) => (
-              <tr key={requisition.id}>
-                <td>{requisition.refNo}</td>
-                <td>{requisition.reqDate}</td>
-                <td>{requisition.status}</td>
+            {items.map((item) => (
+              <tr key={item.id}>
+                <td>{item.nameEn}</td>
+                <td>{item.nameLocal}</td>
               </tr>
             ))}
           </tbody>
