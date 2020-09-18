@@ -1,10 +1,14 @@
 import React from 'react';
 import { fetchItems } from '../../core/request-util';
-import ItemListView from './item-list-view';
+import ListView from '../../core/list-view';
 
 export default function ItemList() {
   const [items, setItems] = React.useState([]);
   const [error, setError] = React.useState(null);
+  const cols = [
+    {name: 'nameEn', header: 'Name En'},
+    {name: 'nameLocal', header: 'Name Local'}
+  ]
 
   React.useEffect(() => {
     fetchItems()
@@ -20,8 +24,9 @@ export default function ItemList() {
 
   return (
     <React.Fragment>
-          <ItemListView
-            items={items} />
+          <ListView
+            rows={items}
+            cols={cols} />
     </React.Fragment>
   )
 }

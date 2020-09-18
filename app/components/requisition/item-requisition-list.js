@@ -1,11 +1,16 @@
 import React from 'react';
 import { fetchItemRequisitions } from '../../core/request-util';
-import ItemRequisitionListView from './item-requisition-list-view';
+import ListView from '../../core/list-view';
 
 
 export default function ItemRequisitionList() {
   const [requisitions, setRequisitions] = React.useState([]);
   const [error, setError] = React.useState(null);
+  const cols = [
+    {name: 'refNo', header: 'Reference No'},
+    {name: 'reqDate', header: 'Req Date'},
+    {name: 'status', header: 'Status'}
+  ]
 
   React.useEffect(() => {
     fetchItemRequisitions()
@@ -22,8 +27,9 @@ export default function ItemRequisitionList() {
 
   return (
     <React.Fragment>
-          <ItemRequisitionListView
-            requisitions={requisitions} />
+      <ListView
+        rows={requisitions}
+        cols={cols} />
     </React.Fragment>
   )
 }
