@@ -1,9 +1,9 @@
 import React from 'react';
-import { fetchItems } from '../../core/request-util';
-import ListView from '../../core/list-view';
+import { fetchSpecs } from '../../../core/request-util';
+import ListView from '../../../core/list-view';
 
-export default function ItemList() {
-  const [items, setItems] = React.useState([]);
+export default function SpecList() {
+  const [specs, setSpecs] = React.useState([]);
   const [error, setError] = React.useState(null);
   const cols = [
     {name: 'nameEn', header: 'Name En'},
@@ -11,13 +11,13 @@ export default function ItemList() {
   ]
 
   React.useEffect(() => {
-    fetchItems()
-      .then((items) => {
-        setItems(items)
+    fetchSpecs()
+      .then((specs) => {
+        setSpecs(specs)
         setError(null)
       })
       .catch(() => {
-        console.warn('Error fetching item list: ', error)
+        console.warn('Error fetching spec list: ', error)
         setError(error)
       })
   }, [])
@@ -25,7 +25,7 @@ export default function ItemList() {
   return (
     <React.Fragment>
           <ListView
-            rows={items}
+            rows={specs}
             cols={cols} />
     </React.Fragment>
   )

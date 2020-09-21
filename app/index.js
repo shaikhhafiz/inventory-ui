@@ -8,10 +8,11 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css'
-import Item from './components/settings/item'
+import Item from './components/settings/item/item'
 import ItemRequisitionCreate from './components/requisition/item-requisition-create';
 import ItemRequisition from './components/requisition/item-requisition';
-import ItemCreate from './components/settings/item-create';
+import ItemCreate from './components/settings/item/item-create';
+import Spec from './components/settings/spec/spec';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
                 <li>Settings
                   <ul>
                     <li><Link to='/settings/item'>Item</Link></li>
+                    <li><Link to='/settings/spec'>Spec</Link></li>
                   </ul>
                 </li>
                 <li><Link to='/requisition'>Requisition</Link></li>
@@ -38,6 +40,9 @@ export default function App() {
               </Route>
               <Route exact path='/settings/item/create'>
                 <ItemCreate />
+              </Route>
+              <Route exact path='/settings/spec'>
+                <Spec/>
               </Route>
               <Route exact path='/requisition/create'>
                 <ItemRequisitionCreate />

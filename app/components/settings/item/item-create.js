@@ -1,5 +1,5 @@
 import React from 'react'
-import { saveItem } from '../../core/request-util'
+import { saveItem } from '../../../core/request-util'
 
 export default function ItemCreate() {
   const [nameEn, setNameEn] = React.useState('');

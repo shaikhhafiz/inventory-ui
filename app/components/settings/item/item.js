@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { fetchItems } from '../../core/request-util';
+import { fetchItems } from '../../../core/request-util';
 import ItemList from './item-list';
 
 export default function Item() {

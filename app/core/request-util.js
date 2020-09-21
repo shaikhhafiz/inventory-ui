@@ -1,4 +1,4 @@
-import { ITEM_REQUISITION, ITEM } from './end-point'
+import { ITEM_REQUISITION, ITEM, SPEC } from './end-point'
 
 export function fetchItemRequisitions() {
   const endpoint = window.encodeURI(ITEM_REQUISITION)
@@ -80,4 +80,18 @@ export function saveItem({ nameEn, nameLocal, isDeleted, createdBy }) {
       return data.elem
     })
     .catch((error) => console.log(error))
+}
+
+export function fetchSpecs() {
+  const endpoint = window.encodeURI(SPEC)
+
+  return fetch(endpoint)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (!data.elems) {
+        throw new Error(data.message)
+      }
+      return data.elems
+    })
 }
