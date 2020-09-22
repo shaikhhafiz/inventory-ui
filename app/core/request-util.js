@@ -40,16 +40,7 @@ export function saveItemRequisition({ refNo, reqDate, status }) {
 
 export function fetchItems() {
   const endpoint = window.encodeURI(ITEM)
-
-  return fetch(endpoint)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      if (!data.elems) {
-        throw new Error(data.message)
-      }
-      return data.elems
-    })
+  return getList(endpoint);
 }
 
 export function saveItem({ nameEn, nameLocal, isDeleted, createdBy }) {
@@ -84,14 +75,17 @@ export function saveItem({ nameEn, nameLocal, isDeleted, createdBy }) {
 
 export function fetchSpecs() {
   const endpoint = window.encodeURI(SPEC)
+  return getList(endpoint);
+}
 
+function getList(endpoint) {
   return fetch(endpoint)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      if (!data.elems) {
-        throw new Error(data.message)
-      }
-      return data.elems
-    })
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    if (!data.elems) {
+      throw new Error(data.message)
+    }
+    return data.elems
+  })
 }
