@@ -6,22 +6,22 @@ export default function ListView({ rows, cols, buttons = [] }) {
       <div>
         <table className="table">
           <thead>
-            <tr>
-              {cols.map((col) => (
-                <th scope="col">{col.header}</th>
+            <tr key={0}>
+              {cols.map((col, index) => (
+                <th key={index} scope="col">{col.header}</th>
               ))}
-              { buttons.length > 0 && <th scope="col">{'Action'}</th>}
+              { buttons.length > 0 && <th key={cols.length} scope="col">{'Action'}</th>}
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
-              <tr key={row.id}>
-                {cols.map((col) => (
-                  <td>{row[col.name]}</td>
+            {rows.map((row, index) => (
+              <tr key={index}>
+                {cols.map((col, index) => (
+                  <td key={index}>{row[col.name]}</td>
                 ))}
-                <td>
-                  {buttons.map((button) => (
-                      <span>{button}</span>
+                <td key={rows.length}>
+                  {buttons.map((button, index) => (
+                      <span key={index}>{button}</span>
                   ))}
                 </td>
               </tr>
