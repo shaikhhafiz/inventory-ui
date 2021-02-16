@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { fetchItemRequisitions } from '../../core/request-util';
 import ItemRequisitionList from './item-requisition-list';
+import {Button} from "react-bootstrap";
 
 
 export default function ItemRequisition() {
@@ -24,7 +24,7 @@ export default function ItemRequisition() {
     <React.Fragment>
       <div className='card'>
         <div className='card-header'>
-          <Link to='/requisition/create'>Create</Link>
+          <Button href='/requisition/create' variant="link">Create</Button>
         </div>
         <div className='card-body'>
           <ItemRequisitionList

@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchItemRequisitions } from '../../core/request-util';
 import ListView from '../../core/list-view';
+import {Button} from "react-bootstrap";
 
 
 export default function ItemRequisitionList() {
@@ -10,6 +11,10 @@ export default function ItemRequisitionList() {
     {name: 'refNo', header: 'Reference No'},
     {name: 'reqDate', header: 'Req Date'},
     {name: 'status', header: 'Status'}
+  ]
+  const buttons = [
+      <Button href='#' variant="link">Edit</Button>,
+    <Button href='#' variant="link">View</Button>
   ]
 
   React.useEffect(() => {
@@ -29,7 +34,8 @@ export default function ItemRequisitionList() {
     <React.Fragment>
       <ListView
         rows={requisitions}
-        cols={cols} />
+        cols={cols}
+        buttons={buttons}/>
     </React.Fragment>
   )
 }
