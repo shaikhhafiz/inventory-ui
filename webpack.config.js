@@ -11,21 +11,44 @@ module.exports = {
     },
     module: {
         rules: [
-            {test: /\.(js)$/, use: 'babel-loader'},
-            {test: /\.css$/, use: ['style-loader', 'css-loader']}
+            {
+                test: /\.(js)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        sourceMaps: true
+                    }
+                }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
         ]
     },
     mode: 'development',
+    devtool: 'eval-source-map',
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
+    ignoreWarnings: [/Failed to parse source map/],
     devServer: {
-      historyApiFallback: true,
+        historyApiFallback: true,
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        hot: true,
+        port: 8080
     },
     plugins: [
         new HtmlWebPackPlugin({
             template: 'app/index.html'
         }),
-        //TODO Add each json file under public folder using regex
-        new CopyWebpackPlugin([
-          { from: 'app/public/requisition.json', to: 'public/requisition.json' }
-      ])
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'app/public/requisition.json', to: 'public/requisition.json' }
+            ]
+        })
     ]
 }
